@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dojos</title>
+    <!-- add css later -->
+    <style>
+        .container1 {
+            display: flex;
+            justify-items: center;
+            width: 900px;
+            height: 500px;
+            /* background-color: aqua; */
+            margin-top: 50px;
+        }
+
+        .side1 {
+            width: 350px;
+            height: 200px;
+            margin-right: 40px;
+            margin-left: 40px;
+            color: aliceblue;
+            background-color: rgb(52, 57, 62);
+
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(5, 122, 254);
+        }
+
+        form {
+            width: 40px;
+        }
+
+        button {
+            width: 80px;
+            height: 35px;
+            margin-left: 20px;
+            background-color: rgb(5, 122, 254);
+        }
+
+        .side2 {
+            width: 350px;
+            height: 240px;
+            margin-left: 190px;
+            background-color: rgb(52, 57, 62);
+        }
+
+        .a {
+            text-align: center;
+            color: rgb(236, 180, 18);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+
+        <div class="side1">
+            <h1>New Dojo</h1>
+            <!-- need to ↓↓link to dojo show action to router -->
+            <form action="/dojos/create" method="post">
+                <label for="name">Name:</label><br><br>
+                <input type="text" id="name" name="name"><br><br>
+                <button>Create</button>
+            </form>
+
+
+        </div>
+
+        <div class="side2">
+            <h1>All Dojos</h1>
+            <!-- should link each ahref to Dojo Show  -->
+            <div class="a">
+                {%for one_dojo in all_dojos%}
+                <a class="a" href="/dojos/{{one_dojo.id}}/view">{{one_dojo.name}}</a><br><br>
+                {% endfor%}
+            </div>
+            <!--link ↓ to New Ninja  -->
+            <a href="/ninjas/new">Add Ninja</a>
+        </div>
+</body>
+
+</html>
